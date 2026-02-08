@@ -23,7 +23,7 @@ jobs:
           echo "Masked key = $api_key"
 
       - name: Create a warning Log for this message "This is a warning message."
-        run: echo "::warning ::This is a warning message"
+        run: echo "::warning::This is a warning message."
 
       - name: Create an error annotation with following parameters, file=app.py line=49 message=nullValue 
         run: echo ::error file=app.py,line=49::nullValue
@@ -36,11 +36,6 @@ jobs:
         run: echo "My lucky number is ${{ steps.lucky_number_step.outputs.LUCKY_NUMBER }}"
 
       - name: Create a Job Summary as "Exploring Workflow Commands :thumbsup:"
+        run: echo "Exploring Workflow Commands :thumbsup:" >> $GITHUB_STEP_SUMMARY
 
-        run: |
-            echo "### Setting environment varaible" >> $GITHUB_STEP_SUMMARY
-            echo "### Setting apikey" >> $GITHUB_STEP_SUMMARY
-            echo "### Setting warning message" >> $GITHUB_STEP_SUMMARY
-            echo "### Setting error message" >> $GITHUB_STEP_SUMMARY
-            echo "### Setting output parameter" >> $GITHUB_STEP_SUMMARY
 
